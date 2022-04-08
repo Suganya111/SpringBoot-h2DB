@@ -1,6 +1,9 @@
 package com.aaludra.employe.response;
 
-	import com.aaludra.employee.entity.Employee;
+	import java.util.Date;
+
+import com.aaludra.employee.entity.Employee;
+
 import lombok.Getter;
 	import lombok.Setter;
 
@@ -8,18 +11,27 @@ import lombok.Getter;
 	@Getter
 	public class EmployeeResponse {
 
-		private long empId;
+		private Long empId;
 		
 		private String empName;
 
 		private String empCity;
 
+		private String empDesignation;
+		
 		private String empSalary;
+
+		private String empEffectiveDate;
+
 				
 		public EmployeeResponse (Employee employee) {
 			this.empId = employee.getEmpId();
 			this.empName = employee.getEmpName();
 			this.empCity = employee.getEmpCity();
-			this.empSalary = employee.getEmpSalary();
-			}
+			this.empDesignation = employee.getEmpDesignation();
+			
+			this.empSalary =employee.getEmployeeSalary().getEmpSalary();
+			this.empEffectiveDate = employee.getEmployeeSalary().getEmpEffectiveDate();
+		}
+		
 		}
